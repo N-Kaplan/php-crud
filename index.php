@@ -19,7 +19,7 @@ $env->load();
 $controller = new HomepageController();
 if (isset($_GET['page']) && $_GET['page'] === 'info') {
     $controller = new InfoController();
-} elseif (isset($_GET['page']) && $_GET['page'] === 'student-view') {
+} elseif (isset($_GET['page']) && $_GET['page'] === 'students-view') {
     $controller = new StudentController();
 }
 
