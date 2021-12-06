@@ -43,7 +43,7 @@ class ClassesLoader extends DataSource {
     }
 
 
-    // insert student into database
+    // insert classes into database
     public function addClass(string $name, string $location, int $teacher_id): void {
         $name = "lamarr";
         $sql = "INSERT INTO class(name, location, teacher_id) VALUES(?, ?, ?)";
