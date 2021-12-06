@@ -6,6 +6,8 @@ Anything complex should be calculated in the model -->
 
     <p><a href="index.php?page=info">To info page</a></p>
 
+    <p><a href="index.php?page=teachers">To Teachers</a></p>
+
     <p>Put your content here.</p>
 </section>
 <?php require 'includes/footer.php'?>
