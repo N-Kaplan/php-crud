@@ -3,30 +3,22 @@
 declare(strict_types=1);
 
 class DataSource {
-    private string $servername = "localhost";
-    private string $username = "root";
-    private string $password = "parolaMariaDB";
-    private string $database = "school";
-    private string $charset = "utf8mb4";
-
-    // public function __construct() {
-    //     $this->servername = "localhost";
-    //     $this->username = "root";
-    //     $this->password = "parolaMariaDB";
-    //     $this->database = "school";
-    //     $this->charset = "utf8mb4";
-    // }
+//    private string $servername = "localhost";
+//    private string $username = "root";
+//    private string $password = "parolaMariaDB";
+//    private string $database = "school";
+//    private string $charset = "utf8mb4";
 
     public function connect() {
-        // $this->servername = "localhost";
-        // $this->username = "root";
-        // $this->password = "parolaMariaDB";
-        // $this->database = "school";
-        // $this->charset = "utf8mb4";
+        $servername = getenv('SERVERNAME');
+        $username = getenv('USERNAME');
+        $password = getenv('PASSWORD');
+        $database = getenv('DATABASE');
+        $charset = getenv('CHARSET');
 
         try {
-            $dsn = "mysql:host=" . $this->servername . ";dbname=" . $this->database . ";charset=" . $this->charset;
-            $pdo = new PDO($dsn, $this->username, $this->password);
+            $dsn = "mysql:host=" . $servername . ";dbname=" . $database . ";charset=" . $charset;
+            $pdo = new PDO($dsn, $username, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
         } catch (PDOException $e) {

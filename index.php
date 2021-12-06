@@ -1,6 +1,12 @@
 <?php
 declare(strict_types=1);
 
+
+require 'Model/DotEnv.php';
+$env = new DotEnv(__DIR__ . '/.env');
+$env -> load();
+
+
 //include all your model files here
 require 'Model/User.php';
 //include all your controllers here
