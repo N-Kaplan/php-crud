@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-require 'Model/DataSource.php';
+//require 'Model/DataSource.php';
 require 'Model/TeacherLoader.php';
 
 class TeacherController
@@ -18,6 +18,6 @@ class TeacherController
         echo implode(' - ', $getTeacherById);
 
         //load the view
-        require 'View/teachers.php';
+        require 'View/teachers-view.php';
     }
 }
