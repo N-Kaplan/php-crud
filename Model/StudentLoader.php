@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-class StudentLoader extends DataSource {
-    // private DataSource $db;
+// idk why it doesn't work without requiring it
+require_once 'Model/DataSource.php';
 
-    // public function __construct(DataSource $db) {
-    //     $this->db = $db;
-    // }
+class StudentLoader extends DataSource {
 
     // get all students
     public function getStudents(): array {
@@ -15,12 +13,10 @@ class StudentLoader extends DataSource {
         $sql = "SELECT * FROM Student";
         $stmt = $this->connect()->query($sql);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            var_dump($row);
             array_push($students, $row);
         }
         return $students;
     }
-
 
     // get student(s) by name
     public function getStudentByName(string $name): array {
@@ -36,36 +32,24 @@ class StudentLoader extends DataSource {
         return $student;
     }
 
-
     // insert student into database
     public function addStudent(string $name, string $email, int $class_id): void {
-        $name = "Stefan";
         $sql = "INSERT INTO Student(name, email, class_id) VALUES(?, ?, ?)";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$name, $email, $class_id]);
     }
 
+    //edit student !!very important to have a WHERE clause!!
+    public function editStudent(string $name, string $email, int $class_id, int $id): void {
+        $sql = "UPDATE Student SET name=?, email=?, class_id=? WHERE id=?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$name, $email, $class_id, $id]);
+    }
 
-    // public function getStudentByName(string $name) {
-    //     $stmt = $this->connect()->prepare("SELECT * FROM Student WHERE name=?");
-    //     $stmt->execute($name);
-    // }
+    //delete student from db
+    public function deleteStudent(int $id): void {
+        $sql = "DELETE FROM Student WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+    }
 }
-
-
-
-//old code from mysqli way of doing things
-//it was inside the get_students() method
-// $result = [];
-        // $response  = $this->db->get_students();
-
-        // var_dump($response);
-        // foreach ($response as $v) {
-        //     array_push($result, new Student((int)$v['id'], $v['first_name'], $v['last_name'], $v['email'], (int)$v['class_id']));
-        // }
-
-        // foreach ($response as $student) {
-        //     $this->result[] = new Student(intval($student['id']), $student['first_name'], $student['last_name'], $student['email'], intval($student['class_id']));
-        // }
-        // var_dump($result);
-        // return $result;
