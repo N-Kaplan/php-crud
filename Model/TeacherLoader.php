@@ -6,9 +6,9 @@ class TeacherLoader extends DataSource
 {
     public function getTeachers(): array {
         $teachers = [];
-        $sql = 'SELECT * FROM Teacher';
-        $stmt = $this->connect()->query($sql);
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $sql = "SELECT * FROM Teacher";
+        $result = $this->connect()->query($sql);
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             var_dump($row);
             array_push($teachers, $row);
         }
@@ -20,30 +20,36 @@ class TeacherLoader extends DataSource
         $sql = 'SELECT * FROM Teacher WHERE id = ?';
         $result = $this->connect()->prepare($sql);
         $result->execute([$id]);
-        $teacher = $result->fetch(PDO::FETCH_ASSOC);
-
-        return $teacher;
+        return $result->fetch(PDO::FETCH_ASSOC);
     }
 
     // get teacher(s) by name (necessary?)
-    public function getTeachersByName(string $name): array {
-        $teachers = [];
-        $sql = "SELECT * FROM Student WHERE name = ?";
-        $result = $this->connect()->prepare($sql);
-        $result->execute([$name]);
-        $names = $result->fetch(PDO::FETCH_ASSOC);
-
-        foreach ($names as $name) {
-            array_push($teachers, $name);
-        }
-        return $teachers;
-    }
+//    public function getTeachersByName(string $name): array {
+//        $teachers = [];
+//        $sql = "SELECT * FROM Student WHERE name = ?";
+//        $result = $this->connect()->prepare($sql);
+//        $result->execute([$name]);
+//        $names = $result->fetch(PDO::FETCH_ASSOC);
+//
+//        foreach ($names as $name) {
+//            array_push($teachers, $name);
+//        }
+//        return $teachers;
+//    }
 
     // insert teacher into database
-    public function addStudent(string $name, string $email): void {
+    public function addTeacher(string $name, string $email): void {
         $name = "testName";
         $sql = "INSERT INTO Teacher(name, email) VALUES(?, ?)";
         $result = $this->connect()->prepare($sql);
         $result->execute([$name, $email]);
+    }
+
+    // remove teacher from database
+    //TODO: caveat: don't remove teacher if assigned to a class
+    public function deleteTeacher(int $id): void {
+        $sql = "DELETE FROM Teacher WHERE id = ?";
+        $result = $this->connect()->prepare($sql);
+        $result->execute([$id]);
     }
 }
