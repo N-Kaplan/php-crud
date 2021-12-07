@@ -40,13 +40,6 @@
             <input type="text" name="teacher-name" placeholder="Name">
             <label for="teacher-email">Email: </label>
             <input type="text" name="teacher-email" placeholder="email">
-            <select name="teachers-menu" id="teachers-menu">
-                <?php
-                foreach ($teachersArr as $teacher) {
-                    echo "<option value='{$teacher['id']}'> {$teacher['name']} </option>";
-                }
-                ?>
-            </select>
             <button type="submit">Submit</button>
         </form>
     </section>
