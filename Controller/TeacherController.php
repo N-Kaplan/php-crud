@@ -19,31 +19,36 @@ class TeacherController
 //        echo implode(' - ', $getTeacherById);
 
 
-        //delete teacher (get functional & move to different page?)
-        if (isset($_POST['delete'])) {
-            $teachersArr->deleteTeacher();
-        }
-
         //load view
         switch ($_GET['page']) {
             case 'teachers-view':
                 //add teacher
                 if (isset($_POST['add'])) {
-                    //echo "<meta http-equiv='refresh' content='0'>";
+                    //refresh once the add button is clicked, so the list is immediately updated
+                    echo "<meta http-equiv='refresh' content='0'>";
                     $teacherLoader->addTeacher($_POST['teacher-name'], $_POST['teacher-email']);
                 }
                 require 'View/teachers-view.php';
                 break;
             case 'teacher-delete':
-                $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
-                //delete teacher
+//                $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
+//                //delete teacher
+//                require 'View/teacher-delete.php';
                 if (isset($_POST['delete'])) {
-                    //echo "<meta http-equiv='refresh' content='0'>";
-                    //$teacherLoader->deleteTeacher($_GET['id']);
+
+                    $teacherLoader->deleteTeacher((int)$_GET['id']);
+                    //header('Location: index.php?page=teachers-view.php');
+                    require 'View/teachers-view.php';
+                    exit();
+
+                } else {
+                    $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
+                    require 'View/teacher-delete.php';
                 }
-                require 'View/teacher-delete.php';
+
                 break;
-            //case 'teacher-edit':
+            case 'teacher-edit':
+                require 'View/teacher-edit.php';
         }
     }
 }

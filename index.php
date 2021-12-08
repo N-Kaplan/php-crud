@@ -27,27 +27,13 @@ $env->load();
 //todo: remove info page, infoController
 
 
-//if(empty($_GET) || $_GET["page"] === "home"){
-//    $homeController->render($_GET, $_POST);
-//}
-//if($_GET["page"] === "students" || $_GET["page"] === "addStudent" || $_GET["page"] === "studentAdd" || $_GET["page"] === "viewStudent" || $_GET["page"] === "editStudent" || $_GET["page"] === "studentEdit" || $_GET["page"] === "deleteStudent"){
-//    $studentController->render($_GET, $_POST);
-//}
-//if(empty($_GET) || $_GET["page"] === "teachers"){
-//    $teacherController->render($_GET, $_POST);
-//}
-//if(empty($_GET) || $_GET["page"] === "classes"){
-//    $classController->render($_GET, $_POST);
-//}
-
 $controller = new HomepageController();
-
 
 if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
     $controller = new StudentController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'student-detail') {
     $controller = new StudentDetailController();
-} elseif (isset($_GET['page']) && ($_GET['page'] === 'teachers-view' || $_GET['page'] === 'teacher-delete')) {
+} elseif (isset($_GET['page']) && ($_GET['page'] === 'teachers-view' || $_GET['page'] === 'teacher-delete' || $_GET['page'] === 'teacher-edit')) {
     $controller = new TeacherController();
 }
 $controller->render($_GET, $_POST);

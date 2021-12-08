@@ -39,9 +39,9 @@
         <h4>Add a new teacher:</h4>
         <form method="post" action="">
             <label for="teacher-name">Name: </label>
-            <input type="text" name="teacher-name" placeholder="Name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)">
+            <input type="text" name="teacher-name" placeholder="Name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" required>
             <label for="teacher-email">Email: </label>
-            <input type="email" name="teacher-email" placeholder="email">
+            <input type="email" name="teacher-email" placeholder="email" required>
             <button type="submit" name="add" value="add">Add</button>
         </form>
     </section>

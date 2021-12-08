@@ -18,7 +18,11 @@
                            <td> {$teacher['id']} </td>
                            <td> {$teacher['name']} </td>
                            <td> {$teacher['email']} </td>
-                           <td><button type='submit' value='{$teacher['id']}'>Delete</button></td>
+                           <td>
+                               <form method='post' action=''>
+                                    <button type='submit' name='delete' value='delete'>Delete</button>
+                               </form>
+                           </td>
                        </tr>";
 
             ?>
