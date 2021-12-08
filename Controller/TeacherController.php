@@ -18,9 +18,9 @@ class TeacherController
 //        //var_dump($getTeacherById);
 //        echo implode(' - ', $getTeacherById);
 
-
+        $page = $_GET['page'];
         //load view
-        switch ($_GET['page']) {
+        switch ($page) {
             case 'teachers-view':
                 //add teacher
                 if (isset($_POST['add'])) {
@@ -35,20 +35,19 @@ class TeacherController
 //                //delete teacher
 //                require 'View/teacher-delete.php';
                 if (isset($_POST['delete'])) {
-
                     $teacherLoader->deleteTeacher((int)$_GET['id']);
+                    $teachersArr = $teacherLoader->getTeachers();
                     //header('Location: index.php?page=teachers-view.php');
+                    echo '<meta http-equiv="refresh" content="0;url=\"index.php?page=teachers-view\" />';
                     require 'View/teachers-view.php';
-                    exit();
 
                 } else {
                     $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
                     require 'View/teacher-delete.php';
                 }
-
                 break;
-            case 'teacher-edit':
-                require 'View/teacher-edit.php';
+//            case 'teacher-edit':
+//                require 'View/teacher-edit.php';
         }
     }
 }
