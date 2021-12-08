@@ -49,9 +49,9 @@ Anything complex should be calculated in the model -->
         <h4>Add a new student:</h4>
         <form method="post" action="">
             <label for="student-name">Name: </label>
-            <input type="text" name="student-name" placeholder="Name" required>
+            <input type="text" name="student-name" placeholder="Name" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
             <label for="student-email">Email: </label>
-            <input type="text" name="student-email" placeholder="Email" required>
+            <input type="email" name="student-email" placeholder="Email" required>
             <label for="student-class">Class: </label>
             <select name="student-class" id="student-class" required>
                 <?php
@@ -60,7 +60,7 @@ Anything complex should be calculated in the model -->
                 }
                 ?>
             </select>
-            <button type="submit">Submit</button>
+            <input type="submit" name="add">
         </form>
     </section>
 

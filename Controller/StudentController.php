@@ -18,6 +18,12 @@ class StudentController {
         $classesLoader = new ClassesLoader();
         $classes = $classesLoader->getClasses();
 
+        // add student to database
+        if (isset($POST['add'])) {
+            $studentLoader->addStudent($POST['student-name'], $POST['student-email'], (int)$POST['student-class']);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+
         //you should not echo anything inside your controller - only assign vars here
         // then the view will actually display them.
 
