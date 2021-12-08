@@ -18,6 +18,7 @@ require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
 require 'Controller/TeacherController.php';
 require 'Controller/StudentController.php';
+require 'Controller/ClassesController.php';
 require 'Controller/StudentDetailController.php';
 
 
@@ -36,6 +37,8 @@ if (isset($_GET['page']) && $_GET['page'] === 'info') {
     $controller = new StudentDetailController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'teachers-view') {
     $controller = new TeacherController();
+} elseif (isset($_GET['page']) && $_GET['page'] === 'classes') {
+    $controller = new ClassesController();
 }
 
 $controller->render($_GET, $_POST);
