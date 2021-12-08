@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-require 'Model/StudentLoader.php';
 require_once './Model/Teacher.php';
 
 class Student extends Teacher {
