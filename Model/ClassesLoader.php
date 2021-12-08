@@ -14,19 +14,19 @@ class ClassesLoader extends DataSource {
         }
         return $classes;
     }
- // get classes by id
- public function getClassesById(int $id): array {
-    $classes = [];
-    $sql = "SELECT * FROM class WHERE id = ?";
-    $stmt = $this->connect()->prepare($sql);
-    $stmt->execute([$id]);
-    $names = $stmt->fetch(PDO::FETCH_ASSOC);
+    // get classes by id
+    public function getClassesById(int $id): array {
+        $classes = [];
+        $sql = "SELECT * FROM class WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+        $names = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    foreach ($ids as $id) {
-        array_push($classes, $id);
+        foreach ($names as $id) {
+            array_push($classes, $id);
+        }
+        return $classes;
     }
-    return $classes;
-}
 
     // get classes by name
     public function getClassesByName(string $name): array {
@@ -50,5 +50,4 @@ class ClassesLoader extends DataSource {
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$name, $location, $teacher_id]);
     }
-
 }
