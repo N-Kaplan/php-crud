@@ -27,8 +27,8 @@
                                 <td> {$teacher['id']} </td>
                                 <td> {$teacher['name']} </td>
                                 <td> {$teacher['email']} </td>
-                                <td><button name='edit'>Edit</button></td>
-                                <td><button name='delete'>Delete</button></td>
+                                <td><a href=\"index.php?page=teacher-edit&id={$teacher['id']}\">Edit</td>
+                                <td><a href=\"index.php?page=teacher-delete&id={$teacher['id']}\">Delete</a></td>
                               </tr>";
                     }
                     ?>
@@ -45,22 +45,22 @@
             <button type="submit" name="add" value="add">Add</button>
         </form>
     </section>
-    <?php
-    function whatIsHappening()
-    {
-    echo '<h2>$_GET</h2>';
-    var_dump($_GET);
-    echo '<h2>$_POST</h2>';
-    var_dump($_POST);
-    echo '<h2>$_COOKIE</h2>';
-    var_dump($_COOKIE);
-    echo '<h2>$_SESSION</h2>';
-    //var_dump($_SESSION);
-    }
-
-
-   whatIsHappening();
-    ?>
+<!--    --><?php
+//    function whatIsHappening()
+//    {
+//    echo '<h2>$_GET</h2>';
+//    var_dump($_GET);
+//    echo '<h2>$_POST</h2>';
+//    var_dump($_POST);
+//    echo '<h2>$_COOKIE</h2>';
+//    var_dump($_COOKIE);
+//    echo '<h2>$_SESSION</h2>';
+//    //var_dump($_SESSION);
+//    }
+//
+//
+//   whatIsHappening();
+//    ?>
 
 </body>
 </html>

@@ -26,15 +26,44 @@ $env = new DotEnv(__DIR__ . '/.env');
 $env->load();
 //todo: remove info page, infoController
 
+
+//if(empty($_GET) || $_GET["page"] === "home"){
+//    $homeController->render($_GET, $_POST);
+//}
+//if($_GET["page"] === "students" || $_GET["page"] === "addStudent" || $_GET["page"] === "studentAdd" || $_GET["page"] === "viewStudent" || $_GET["page"] === "editStudent" || $_GET["page"] === "studentEdit" || $_GET["page"] === "deleteStudent"){
+//    $studentController->render($_GET, $_POST);
+//}
+//if(empty($_GET) || $_GET["page"] === "teachers"){
+//    $teacherController->render($_GET, $_POST);
+//}
+//if(empty($_GET) || $_GET["page"] === "classes"){
+//    $classController->render($_GET, $_POST);
+//}
+
 $controller = new HomepageController();
-if (isset($_GET['page']) && $_GET['page'] === 'info') {
-    $controller = new InfoController();
-} elseif (isset($_GET['page']) && $_GET['page'] === 'students-view') {
+
+
+  if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
     $controller = new StudentController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'student-detail') {
     $controller = new StudentDetailController();
-} elseif (isset($_GET['page']) && $_GET['page'] === 'teachers-view') {
+} elseif (isset($_GET['page']) && ($_GET['page'] === 'teachers-view' || $_GET['page'] === 'teachers-delete')) {
     $controller = new TeacherController();
 }
-
 $controller->render($_GET, $_POST);
+
+
+function whatIsHappening()
+{
+    echo '<h2>$_GET</h2>';
+    var_dump($_GET);
+    echo '<h2>$_POST</h2>';
+    var_dump($_POST);
+    echo '<h2>$_COOKIE</h2>';
+    var_dump($_COOKIE);
+    echo '<h2>$_SESSION</h2>';
+    //var_dump($_SESSION);
+}
+
+
+whatIsHappening();
