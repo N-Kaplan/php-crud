@@ -12,7 +12,7 @@
 <tr>
 <th> Name </th>
 <th> Location</th>
-<th> Teacher_id </th>
+<th> Teacher </th>
 </tr>
 </thead>
 <tbody>
