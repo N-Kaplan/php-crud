@@ -12,7 +12,7 @@ class DataSource {
         $charset = getenv('CHARSET');
 
         try {
-            $dsn = "mysql:host=" . $servername . ";dbname=" . $database . ";charset=" . $charset;
+            $dsn = "mysql:host=" . $servername . ";dbname=" . $database . ";";
             $pdo = new PDO($dsn, $username, $password);
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
