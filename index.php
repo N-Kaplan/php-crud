@@ -15,6 +15,7 @@ require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
 require 'Controller/TeacherController.php';
 require 'Controller/StudentController.php';
+require 'Controller/ClassesController.php';
 
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
