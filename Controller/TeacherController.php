@@ -17,6 +17,11 @@ class TeacherController
         var_dump($getTeacherById);
         echo implode(' - ', $getTeacherById);
 
+        //delete teacher
+        if (isset($_POST['delete'])) {
+            $teachersArr->deleteTeacher();
+        }
+
         //load the view
         require 'View/teachers-view.php';
     }

@@ -5,8 +5,10 @@
     <title>Teachers</title>
 </head>
 <body>
-    <h4>Teachers:</h4>
+    <p><a href="index.php">Back to Homepage</a></p>
 
+    <h4>Teachers:</h4>
+<!--    todo: add student list as clickable link-->
     <section>
         <table >
             <thead>
@@ -25,8 +27,8 @@
                                 <td> {$teacher['id']} </td>
                                 <td> {$teacher['name']} </td>
                                 <td> {$teacher['email']} </td>
-                                <td><button>Edit</button></td>
-                                <td><button>Delete</button></td>
+                                <td><button name='edit'>Edit</button></td>
+                                <td><button name='delete'>Delete</button></td>
                               </tr>";
                     }
                     ?>
@@ -40,7 +42,7 @@
             <input type="text" name="teacher-name" placeholder="Name">
             <label for="teacher-email">Email: </label>
             <input type="text" name="teacher-email" placeholder="email">
-            <button type="submit">Submit</button>
+            <button type="submit" name="add">Add</button>
         </form>
     </section>
 </body>

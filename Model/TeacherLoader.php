@@ -9,7 +9,6 @@ class TeacherLoader extends DataSource
         $sql = "SELECT * FROM Teacher";
         $result = $this->connect()->query($sql);
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            var_dump($row);
             array_push($teachers, $row);
         }
         return $teachers;
