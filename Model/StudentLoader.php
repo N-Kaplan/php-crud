@@ -7,10 +7,9 @@ require_once 'Model/DataSource.php';
 
 class StudentLoader extends DataSource {
 
-    // get all students
     public function getStudents(): array {
         $students = [];
-        $sql = "SELECT * FROM Student";
+        $sql = "SELECT s.*, c.name AS className FROM Student s join Class c on s.class_id = c.id";
         $stmt = $this->connect()->query($sql);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             array_push($students, $row);
@@ -18,21 +17,17 @@ class StudentLoader extends DataSource {
         return $students;
     }
 
-    // get student(s) by name
-    public function getStudentByName(string $name): array {
+    public function getStudentById(int $id): array {
         $student = [];
-        $sql = "SELECT * FROM Student WHERE name = ?";
+        $sql = "SELECT s.*, c.name AS className FROM Student s join Class c on s.class_id = c.id WHERE s.id = ?";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$name]);
-        $names = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        foreach ($names as $name) {
-            array_push($student, $name);
+        $stmt->execute([$id]);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($student, $row);
         }
         return $student;
     }
 
-    // insert student into database
     public function addStudent(string $name, string $email, int $class_id): void {
         $sql = "INSERT INTO Student(name, email, class_id) VALUES(?, ?, ?)";
         $stmt = $this->connect()->prepare($sql);
@@ -46,7 +41,6 @@ class StudentLoader extends DataSource {
         $stmt->execute([$name, $email, $class_id, $id]);
     }
 
-    //delete student from db
     public function deleteStudent(int $id): void {
         $sql = "DELETE FROM Student WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);

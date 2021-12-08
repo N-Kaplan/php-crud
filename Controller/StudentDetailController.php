@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class StudentController {
+class StudentDetailController {
     //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST) {
 
@@ -10,9 +10,12 @@ class StudentController {
         //get the list of all the students
         $studentLoader = new StudentLoader();
         $students = $studentLoader->getStudents();
-        var_dump($students);
 
-        // $studentById = $studentLoader->getStudentById(4);
+        // get the id for the selected student? no idea what I'm doing at this point, feels like voodoo
+        $array = array_values($POST);
+        $studentId = ((int)$array[0]);
+
+        $studentById = $studentLoader->getStudentById($studentId);
 
         //get the list with all the classes
         $classesLoader = new ClassesLoader();
@@ -22,6 +25,6 @@ class StudentController {
         // then the view will actually display them.
 
         //load the view
-        require 'View/students-view.php';
+        require 'View/student-detail.php';
     }
 }
