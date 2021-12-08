@@ -39,11 +39,28 @@
         <h4>Add a new teacher:</h4>
         <form method="post" action="">
             <label for="teacher-name">Name: </label>
-            <input type="text" name="teacher-name" placeholder="Name">
+            <input type="text" name="teacher-name" placeholder="Name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)">
             <label for="teacher-email">Email: </label>
-            <input type="text" name="teacher-email" placeholder="email">
-            <button type="submit" name="add">Add</button>
+            <input type="email" name="teacher-email" placeholder="email">
+            <button type="submit" name="add" value="add">Add</button>
         </form>
     </section>
+    <?php
+    function whatIsHappening()
+    {
+    echo '<h2>$_GET</h2>';
+    var_dump($_GET);
+    echo '<h2>$_POST</h2>';
+    var_dump($_POST);
+    echo '<h2>$_COOKIE</h2>';
+    var_dump($_COOKIE);
+    echo '<h2>$_SESSION</h2>';
+    //var_dump($_SESSION);
+    }
+
+
+   whatIsHappening();
+    ?>
+
 </body>
 </html>

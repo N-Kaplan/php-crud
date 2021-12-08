@@ -38,7 +38,6 @@ class TeacherLoader extends DataSource
 
     // insert teacher into database
     public function addTeacher(string $name, string $email): void {
-        $name = "testName";
         $sql = "INSERT INTO Teacher(name, email) VALUES(?, ?)";
         $result = $this->connect()->prepare($sql);
         $result->execute([$name, $email]);
