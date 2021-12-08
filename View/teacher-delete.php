@@ -1,5 +1,5 @@
 <?php
-require 'includes/header.php';
+//require 'includes/header.php';
 
 ?>
     <section>
@@ -9,8 +9,7 @@ require 'includes/header.php';
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>Check</th>
             </tr>
             </thead>
             <tbody>
@@ -19,8 +18,7 @@ require 'includes/header.php';
                            <td> {$teacher['id']} </td>
                            <td> {$teacher['name']} </td>
                            <td> {$teacher['email']} </td>
-                           <td><a href=\"index.php?page=teacher-edit&id={$teacher['id']}\">Edit</td>
-                           <td><a href=\"index.php?page=teacher-delete&id={$teacher['id']}\">Delete</a></td>
+                           <td><button type='submit' value='{$teacher['id']}'>Delete</button></td>
                        </tr>";
 
             ?>

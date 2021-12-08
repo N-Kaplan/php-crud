@@ -29,20 +29,21 @@ class TeacherController
             case 'teachers-view':
                 //add teacher
                 if (isset($_POST['add'])) {
-                    echo "<meta http-equiv='refresh' content='0'>";
+                    //echo "<meta http-equiv='refresh' content='0'>";
                     $teacherLoader->addTeacher($_POST['teacher-name'], $_POST['teacher-email']);
                 }
                 require 'View/teachers-view.php';
                 break;
             case 'teacher-delete':
-                $teacher = $teacherLoader->getTeacherById($_GET['id']);
+                $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
                 //delete teacher
                 if (isset($_POST['delete'])) {
-                    $teacherLoader->deleteTeacher($_GET['id']);
+                    //echo "<meta http-equiv='refresh' content='0'>";
+                    //$teacherLoader->deleteTeacher($_GET['id']);
                 }
                 require 'View/teacher-delete.php';
                 break;
-            case 'teacher-edit':
+            //case 'teacher-edit':
         }
     }
 }

@@ -43,11 +43,11 @@ $env->load();
 $controller = new HomepageController();
 
 
-  if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
+if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
     $controller = new StudentController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'student-detail') {
     $controller = new StudentDetailController();
-} elseif (isset($_GET['page']) && ($_GET['page'] === 'teachers-view' || $_GET['page'] === 'teachers-delete')) {
+} elseif (isset($_GET['page']) && ($_GET['page'] === 'teachers-view' || $_GET['page'] === 'teacher-delete')) {
     $controller = new TeacherController();
 }
 $controller->render($_GET, $_POST);
