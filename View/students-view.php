@@ -25,19 +25,24 @@ Anything complex should be calculated in the model -->
                 foreach ($students as $student) {
                     echo
                     "
-                    <form method='post' action='index.php?page=student-detail'>
+                    
                     <table id='Table{$student['id']}' class='table'>
                     <tbody name=Table{$student['id']}' id='tbody'>
                         <tr name='Table{$student['id']}'>
+                        <form method='post' action='index.php?page=student-detail'>
                             <td name='Table{$student['id']}' style='display:none;'><input type='hidden' name='v{$student['id']}' value='{$student['id']}'>{$student['id']}</td>
                             <td name='Table{$student['id']}'><input type='hidden'>{$student['name']}</td>
                             <td name='Table{$student['id']}'><input type='hidden'>{$student['email']}</td>
                             <td name='Table{$student['id']}'><input type='hidden''>{$student['className']}</td>
                             <td name='Table{$student['id']}' id='td'><input type='hidden' class='form-control' name='editBtn' value='Edit'><button type='submit'>edit</button></td>
-                            <td name='Table{$student['id']}' id='td'><input type='hidden' class='form-control' value='Delete'><button type='submit'>Delete</button></td>
+                        </form>
+                        <form method='post' action=''>
+                            <td name='Table{$student['id']}' style='display:none;'><input type='hidden' name='v{$student['id']}' value='{$student['id']}'>{$student['id']}</td>
+                            <td name='Table{$student['id']}' id='td'><input type='hidden' class='form-control' value='{$student['id']}' name='delete'><button type='submit' value='{$student['id']}' name='delete'>Delete</button></td>
+                        </form>
                         </tr>
                      </table>
-                    </form>
+                    
                     ";
                 }
 
