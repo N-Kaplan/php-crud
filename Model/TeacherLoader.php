@@ -51,4 +51,6 @@ class TeacherLoader extends DataSource
         $result = $this->connect()->prepare($sql);
         $result->execute([$id]);
     }
+
+    //edit teacher
 }
