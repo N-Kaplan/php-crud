@@ -18,11 +18,8 @@ require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
 require 'Controller/TeacherController.php';
 require 'Controller/StudentController.php';
-<<<<<<< HEAD
 require 'Controller/ClassesController.php';
-=======
 require 'Controller/StudentDetailController.php';
->>>>>>> 15e58cf83955f26db6ab974b5d583ba04e4780a2
 
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
@@ -40,6 +37,8 @@ if (isset($_GET['page']) && $_GET['page'] === 'info') {
     $controller = new StudentDetailController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'teachers-view') {
     $controller = new TeacherController();
+} elseif (isset($_GET['page']) && $_GET['page'] === 'classes') {
+    $controller = new ClassesController();
 }
 
 $controller->render($_GET, $_POST);
