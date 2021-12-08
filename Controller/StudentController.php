@@ -22,7 +22,6 @@ class StudentController {
         if (isset($POST['add'])) {
             $studentLoader->addStudent($POST['student-name'], $POST['student-email'], (int)$POST['student-class']);
             echo "<meta http-equiv='refresh' content='0'>";
-            var_dump('the add button was pressed in the students page');
         }
 
         //you should not echo anything inside your controller - only assign vars here
