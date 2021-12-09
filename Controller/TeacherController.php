@@ -11,12 +11,8 @@ class TeacherController
     public function render(array $GET, array $POST)
     {
         $teacherLoader = new TeacherLoader();
+        $studentLoader = new StudentLoader();
         $teachersArr = $teacherLoader->getTeachers();
-        //var_dump($teachersArr);
-
-//        $getTeacherById = $teacherLoader->getTeacherById(2);
-//        //var_dump($getTeacherById);
-//        echo implode(' - ', $getTeacherById);
 
         $page = $_GET['page'];
         //load view
@@ -33,8 +29,7 @@ class TeacherController
                 break;
             case 'teacher-students':
                 $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
-                $students = $teacherLoader->getStudents((int)$_GET['id']);
-                //var_dump($students);
+                $students = $studentLoader->getStudentsByTeacherId((int)$_GET['id']);
                 require 'View/teacher-students.php';
                 break;
         }

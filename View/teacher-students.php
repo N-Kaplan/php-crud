@@ -2,7 +2,7 @@
 <p><a href="index.php?page=teachers-view">Back to teachers page</a></p>
     <section>
         <h4><?php echo $teacher['name'] ?>'s students:</h4>
-        <table >
+        <table class="main-table">
             <thead>
             <tr>
                 <th>Student ID</th>

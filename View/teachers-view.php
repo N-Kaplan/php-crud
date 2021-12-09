@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Teachers</title>
-</head>
-<body>
-    <p><a href="index.php">Back to Homepage</a></p>
+<?php require 'includes/header.php' ?>
 
-    <h4>Teachers:</h4>
+<section class="main">
+    <section class="header">
+        <p><a href="index.php">Back to Homepage</a></p>
+        <h4>Teachers:</h4>
     <section>
-        <table >
+    <section class="data-list">
+        <table class="main-table">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Student List</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>Details</th>
                 </tr>
                 </thead>
             <tbody>
@@ -28,8 +24,7 @@
                                 <td> {$teacher['name']} </td>
                                 <td> {$teacher['email']} </td>
                                 <td><a href=\"index.php?page=teacher-students&id={$teacher['id']}\">Students</td>
-                                <td><a href=\"index.php?page=teacher-edit&id={$teacher['id']}\">Edit</td>
-                                <td><a href=\"index.php?page=teacher-delete&id={$teacher['id']}\">Delete</a></td>
+                                <td><a href=\"index.php?page=teacher-edit&id={$teacher['id']}\">Details</td>
                               </tr>";
                     }
                     ?>
@@ -46,22 +41,5 @@
             <button type="submit" name="add" value="add">Add</button>
         </form>
     </section>
-<!--    --><?php
-//    function whatIsHappening()
-//    {
-//    echo '<h2>$_GET</h2>';
-//    var_dump($_GET);
-//    echo '<h2>$_POST</h2>';
-//    var_dump($_POST);
-//    echo '<h2>$_COOKIE</h2>';
-//    var_dump($_COOKIE);
-//    echo '<h2>$_SESSION</h2>';
-//    //var_dump($_SESSION);
-//    }
-//
-//
-//   whatIsHappening();
-//    ?>
+</section>
 
-</body>
-</html>
