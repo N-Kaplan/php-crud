@@ -1,9 +1,6 @@
 @import url('./Styles/styles-reset.css');
 @import url('./Styles/homepage.css');
-@import url('./Styles/students-view.css');
 @import url('./Styles/student-detail.css');
-@import url('./Styles/teachers-view.css');
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
 .main-header {
   display: flex;
@@ -18,20 +15,6 @@
   background-color: #7a0099;
   z-index: 4;
 }
-
-/* .header-btn {
-  background-color: #009879;
-  color: #ffffff;
-  width: 8rem;
-  margin: 0.5rem 0;
-  border-radius: 6px;
-  padding: 5px;
-  border: none;
-} */
-
-/* .header-btn:hover {
-  transform: scale(1.1);
-} */
 
 .main {
   margin: 6rem 0 2rem 0;
