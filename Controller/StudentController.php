@@ -21,13 +21,6 @@ class StudentController {
             header("Location: $referer");
         }
 
-        // delete student from database
-        if (isset($POST['delete'])) {
-            $studentLoader->deleteStudent((int)$POST['delete']);
-            $referer = $_SERVER['HTTP_REFERER'];
-            header("Location: $referer");
-        }
-
         require 'View/students-view.php';
     }
 }
