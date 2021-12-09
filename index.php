@@ -24,8 +24,6 @@ require 'Controller/StudentDetailController.php';
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
-$env = new DotEnv(__DIR__ . '/.env');
-$env->load();
 //todo: remove info page, infoController
 
 
@@ -45,8 +43,7 @@ if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
 $controller->render($_GET, $_POST);
 
 
-function whatIsHappening()
-{
+function whatIsHappening() {
     echo '<h2>$_GET</h2>';
     var_dump($_GET);
     echo '<h2>$_POST</h2>';
