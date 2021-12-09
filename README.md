@@ -6,7 +6,7 @@ Learning exercise at BeCode training.
 # Collaborators:
 
 - [S. Amuraritei](https://github.com/StefanAmur)
-- [B. ?](https://github.com/itsme17)
+- [B. Shrestha](https://github.com/itsme17)
 - [N. Kaplan](https://github.com/N-Kaplan)
 
 

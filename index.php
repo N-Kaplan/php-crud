@@ -17,6 +17,7 @@ require 'Model/ClassesLoader.php';
 require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
 require 'Controller/TeacherController.php';
+require 'Controller/TeacherEditController.php';
 require 'Controller/StudentController.php';
 require 'Controller/ClassesController.php';
 require 'Controller/StudentDetailController.php';
@@ -25,15 +26,32 @@ require 'Controller/StudentDetailController.php';
 //this file should never be more than 20 lines of code!
 //todo: remove info page, infoController
 
+
 $controller = new HomepageController();
+
 if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
     $controller = new StudentController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'student-detail') {
     $controller = new StudentDetailController();
-} elseif (isset($_GET['page']) && $_GET['page'] === 'teachers-view') {
+} elseif (isset($_GET['page']) && ($_GET['page'] === 'teachers-view' || $_GET['page'] === 'teacher-delete')) {
     $controller = new TeacherController();
+} elseif (isset($_GET['page']) && $_GET['page'] === 'teacher-edit') {
+    $controller = new TeacherEditController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'classes') {
     $controller = new ClassesController();
 }
-
 $controller->render($_GET, $_POST);
+
+
+function whatIsHappening() {
+    echo '<h2>$_GET</h2>';
+    var_dump($_GET);
+    echo '<h2>$_POST</h2>';
+    var_dump($_POST);
+    echo '<h2>$_COOKIE</h2>';
+    var_dump($_COOKIE);
+    echo '<h2>$_SESSION</h2>';
+    //var_dump($_SESSION);
+}
+
+whatIsHappening();
