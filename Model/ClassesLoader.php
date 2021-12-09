@@ -44,9 +44,14 @@ class ClassesLoader extends DataSource {
 
     // insert classes into database
     public function addClass(string $name, string $location, int $teacher_id): void {
-        $name = "lamarr";
         $sql = "INSERT INTO class(name, location, teacher_id) VALUES(?, ?, ?)";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$name, $location, $teacher_id]);
+    }
+
+    public function deleteClasses(int $id): void {
+        $sql = "DELETE FROM class WHERE id = ?";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
     }
 }
