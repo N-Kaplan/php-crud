@@ -1,13 +1,12 @@
 <?php
-declare(strict_types = 1);
 
-class ClassesController
-{
-    public function render(array $GET, array $POST)
-    {
+declare(strict_types=1);
+
+class ClassesController {
+    public function render(array $GET, array $POST) {
         $classesLoader = new ClassesLoader();
         $classesArray = $classesLoader->getClasses();
-        
+
         //get the list with all the teacher
         $teacherLoader = new TeacherLoader();
         $teachers = $teacherLoader->getTeachers();
@@ -24,7 +23,10 @@ class ClassesController
             $referer = $_SERVER['HTTP_REFERER'];
             header("Location: $referer");
         }
-         
+
+        //get the list with all the teacher
+        $teacherLoader = new TeacherLoader();
+        $teachers = $teacherLoader->getTeachers();
 
         //load the view
         require 'View/classes.php';
