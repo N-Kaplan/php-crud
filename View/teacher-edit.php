@@ -14,7 +14,6 @@
         </thead>
         <tbody>
         <?php
-
             echo "<tr>
                       <td> {$teacher['id']} </td>
                       <td> {$teacher['name']} </td>

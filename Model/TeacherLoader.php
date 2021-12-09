@@ -57,4 +57,16 @@ class TeacherLoader extends DataSource
         $result = $this->connect()->prepare($sql);
         $result->execute([$name, $email, $id]);
     }
+
+    //get all assigned students
+    public function getStudents(int $id): array {
+        $students = [];
+        $sql = "SELECT * FROM Student LEFT JOIN school.class c on c.id = student.class_id WHERE teacher_id = ?";
+        $result = $this->connect()->prepare($sql);
+        $result->execute([$id]);
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            array_push($students, $row);
+        }
+        return $students;
+    }
 }
