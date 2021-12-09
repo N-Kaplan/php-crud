@@ -3,13 +3,12 @@
 declare(strict_types=1);
 
 class ClassesLoader extends DataSource {
-    // get all students
+    // get all classes
     public function getClasses(): array {
         $classes = [];
         $sql = "SELECT * FROM class";
         $stmt = $this->connect()->query($sql);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            var_dump($row);
             array_push($classes, $row);
         }
         return $classes;
