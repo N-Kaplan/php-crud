@@ -9,7 +9,6 @@ class TeacherLoader extends DataSource
         $sql = "SELECT * FROM Teacher";
         $result = $this->connect()->query($sql);
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            var_dump($row);
             array_push($teachers, $row);
         }
         return $teachers;
@@ -39,7 +38,6 @@ class TeacherLoader extends DataSource
 
     // insert teacher into database
     public function addTeacher(string $name, string $email): void {
-        $name = "testName";
         $sql = "INSERT INTO Teacher(name, email) VALUES(?, ?)";
         $result = $this->connect()->prepare($sql);
         $result->execute([$name, $email]);
@@ -52,4 +50,6 @@ class TeacherLoader extends DataSource
         $result = $this->connect()->prepare($sql);
         $result->execute([$id]);
     }
+
+    //edit teacher
 }

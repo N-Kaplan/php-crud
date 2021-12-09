@@ -5,8 +5,10 @@
     <title>Teachers</title>
 </head>
 <body>
-    <h4>Teachers:</h4>
+    <p><a href="index.php">Back to Homepage</a></p>
 
+    <h4>Teachers:</h4>
+<!--    todo: add student list as clickable link-->
     <section>
         <table >
             <thead>
@@ -25,8 +27,8 @@
                                 <td> {$teacher['id']} </td>
                                 <td> {$teacher['name']} </td>
                                 <td> {$teacher['email']} </td>
-                                <td><button>Edit</button></td>
-                                <td><button>Delete</button></td>
+                                <td><a href=\"index.php?page=teacher-edit&id={$teacher['id']}\">Edit</td>
+                                <td><a href=\"index.php?page=teacher-delete&id={$teacher['id']}\">Delete</a></td>
                               </tr>";
                     }
                     ?>
@@ -37,11 +39,28 @@
         <h4>Add a new teacher:</h4>
         <form method="post" action="">
             <label for="teacher-name">Name: </label>
-            <input type="text" name="teacher-name" placeholder="Name">
+            <input type="text" name="teacher-name" placeholder="Name" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" required>
             <label for="teacher-email">Email: </label>
-            <input type="text" name="teacher-email" placeholder="email">
-            <button type="submit">Submit</button>
+            <input type="email" name="teacher-email" placeholder="email" required>
+            <button type="submit" name="add" value="add">Add</button>
         </form>
     </section>
+<!--    --><?php
+//    function whatIsHappening()
+//    {
+//    echo '<h2>$_GET</h2>';
+//    var_dump($_GET);
+//    echo '<h2>$_POST</h2>';
+//    var_dump($_POST);
+//    echo '<h2>$_COOKIE</h2>';
+//    var_dump($_COOKIE);
+//    echo '<h2>$_SESSION</h2>';
+//    //var_dump($_SESSION);
+//    }
+//
+//
+//   whatIsHappening();
+//    ?>
+
 </body>
 </html>
