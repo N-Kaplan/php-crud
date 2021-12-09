@@ -1,21 +1,22 @@
 <?php require 'includes/header.php' ?>
 <!-- this is the view, try to put only simple if's and loops here.
 Anything complex should be calculated in the model -->
-<section class='students-main'>
-    <section class="students-header">
+<section class='main'>
+    <section class="header">
         <h1>This is the student page.</h1>
         <h3>Here we should have all of our beautiful students</h3>
 
         <p><a href="index.php?page=homepage">To homepage</a></p>
     </section>
-    <section class="students-list">
-        <table>
+    <section class="data-list">
+        <table class="main-table">
             <thead>
                 <tr>
                     <th style='display:none;'>Id</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Class</th>
+                    <th>Teacher</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -32,9 +33,10 @@ Anything complex should be calculated in the model -->
                             <td name='Table{$student['id']}' style='display:none;'><input type='hidden' name='v{$student['id']}' value='{$student['id']}'>{$student['id']}</td>
                             <td name='Table{$student['id']}'>{$student['name']}</td>
                             <td name='Table{$student['id']}'>{$student['email']}</td>
-                            <td name='Table{$student['id']}'>{$student['className']}</td>
-                            <td name='Table{$student['id']}' id='td'><a href='index.php?page=student-detail&id={$student['id']}'>Edit</a></td>
-                            <td name='Table{$student['id']}' id='td'><a href='index.php?page=student-detail&id={$student['id']}'>Delete</a></td>
+                            <td name='Table{$student['id']}'><a href='index.php?page=classes&id={$student['class_id']}'>{$student['className']}</a></td>
+                            <td name='Table{$student['id']}'><a href='index.php?page=teacher-edit&id={$student['teacher_id']}'>{$student['teacherName']}</a></td>
+                            <td name='Table{$student['id']}' id='td'><a href='index.php?page=student-edit&id={$student['id']}'>Edit or delete</a></td>
+                            
                     
                         </tr>
                      </table>
@@ -45,7 +47,7 @@ Anything complex should be calculated in the model -->
             </tbody>
         </table>
     </section>
-    <section class="students-add">
+    <section class="form-add">
         <h4>Add a new student:</h4>
         <form method="post" action="">
             <label for="student-name">Name: </label>
@@ -60,7 +62,7 @@ Anything complex should be calculated in the model -->
                 }
                 ?>
             </select>
-            <input type="submit" name="add">
+            <input type="submit" name="add" value="Add">
         </form>
     </section>
 

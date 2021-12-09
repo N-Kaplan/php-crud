@@ -5,8 +5,6 @@ declare(strict_types=1);
 class StudentDetailController {
     //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST) {
-
-        //this is just example code, you can remove the line below
         //get the list of all the students
         $studentLoader = new StudentLoader();
         $students = $studentLoader->getStudents();
@@ -17,16 +15,24 @@ class StudentDetailController {
         $classesLoader = new ClassesLoader();
         $classes = $classesLoader->getClasses();
 
-        if (isset($POST['submitBtn'])) {
+        //edit student 
+        if (isset($POST['editBtn'])) {
             $name = $email = $class_id = $id = '';
             $name = $POST['student-name'];
             $email = $POST['student-email'];
             $class_id = (int)$POST['student-class'];
             $id = (int)$POST['student-id'];
             $studentLoader->editStudent($name, $email, $class_id, $id);
+            header("Location: index.php?page=students-view");
+        }
+
+        // delete student from database
+        if (isset($POST['deleteBtn'])) {
+            $studentLoader->deleteStudent((int)$POST['deleteBtn']);
+            header("Location: index.php?page=students-view");
         }
 
         //load the view
-        require 'View/student-detail.php';
+        require 'View/student-edit.php';
     }
 }
