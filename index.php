@@ -21,6 +21,8 @@ require 'Controller/TeacherEditController.php';
 require 'Controller/StudentController.php';
 require 'Controller/ClassesController.php';
 require 'Controller/StudentDetailController.php';
+require 'Controller/ClassesEditController.php';
+
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
@@ -40,10 +42,12 @@ if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
 } elseif (isset($_GET['page']) && $_GET['page'] === 'classes') {
     $controller = new ClassesController();
 }
+elseif (isset($_GET['page']) && $_GET['page'] === 'classesEdit') {
+    $controller = new ClassesEditController();
+}
 $controller->render($_GET, $_POST);
 
 
-<<<<<<< HEAD
 // function whatIsHappening()
 // {
 //     echo '<h2>$_GET</h2>';
@@ -57,17 +61,3 @@ $controller->render($_GET, $_POST);
 // }
 
 // whatIsHappening();
-=======
-function whatIsHappening() {
-    echo '<h2>$_GET</h2>';
-    var_dump($_GET);
-    echo '<h2>$_POST</h2>';
-    var_dump($_POST);
-    echo '<h2>$_COOKIE</h2>';
-    var_dump($_COOKIE);
-    echo '<h2>$_SESSION</h2>';
-    //var_dump($_SESSION);
-}
-
-whatIsHappening();
->>>>>>> a9e02457d380b4d889d814a34f38e3b5e492e732

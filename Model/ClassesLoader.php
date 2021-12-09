@@ -15,16 +15,11 @@ class ClassesLoader extends DataSource {
     }
     // get classes by id
     public function getClassesById(int $id): array {
-        $classes = [];
-        $sql = "SELECT * FROM class WHERE id = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$id]);
-        $names = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        foreach ($names as $id) {
-            array_push($classes, $id);
-        }
-        return $classes;
+            $sql = 'SELECT * FROM class WHERE id = ?';
+            $result = $this->connect()->prepare($sql);
+            $result->execute([$id]);
+            return $result->fetch(PDO::FETCH_ASSOC);
+        
     }
 
     // get classes by name
@@ -48,10 +43,16 @@ class ClassesLoader extends DataSource {
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$name, $location, $teacher_id]);
     }
-
+ // delete class
     public function deleteClasses(int $id): void {
         $sql = "DELETE FROM class WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
+    }
+    //edit class
+    public function editClass(string $name, string $location, int $teacher_id,int $id): void {
+        $sql = "UPDATE class SET name=?, location=? , teacher_id=? WHERE id=?";
+        $result = $this->connect()->prepare($sql);
+        $result->execute([$name, $location, $teacher_id,$id]);
     }
 }
