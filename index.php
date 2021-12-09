@@ -38,26 +38,7 @@ if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
     $controller = new TeacherEditController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'classes') {
     $controller = new ClassesController();
-}
-elseif (isset($_GET['page']) && $_GET['page'] === 'classesEdit') {
+} elseif (isset($_GET['page']) && $_GET['page'] === 'classesEdit') {
     $controller = new ClassesEditController();
 }
 $controller->render($_GET, $_POST);
-<<<<<<< HEAD
-
-
-// function whatIsHappening()
-// {
-//     echo '<h2>$_GET</h2>';
-//     var_dump($_GET);
-//     echo '<h2>$_POST</h2>';
-//     var_dump($_POST);
-//     echo '<h2>$_COOKIE</h2>';
-//     var_dump($_COOKIE);
-//     echo '<h2>$_SESSION</h2>';
-//     //var_dump($_SESSION);
-// }
-
-// whatIsHappening();
-=======
->>>>>>> 257ef517d34fc40924e912e96d17a47785c88b2b
