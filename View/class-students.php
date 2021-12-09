@@ -1,6 +1,4 @@
 <?php require 'includes/header.php' ?>
-<!-- this is the view, try to put only simple if's and loops here.
-Anything complex should be calculated in the model -->
 <section class='main'>
     <section class="header">
         <h1>This is the class with students page.</h1>

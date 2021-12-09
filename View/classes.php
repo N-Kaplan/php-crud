@@ -1,7 +1,7 @@
 <?php require 'includes/header.php' ?>
 <section class="main">
   <section class="header">
-    <h1>Our classes</h1>
+    <h1 class="main-title">Our classes</h1>
   </section>
   <section class="form-add">
     <h4>Add a new class:</h4>

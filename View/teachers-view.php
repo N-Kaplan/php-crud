@@ -2,8 +2,7 @@
 
 <section class="main">
     <section class="header">
-        <p><a href="index.php">Back to Homepage</a></p>
-        <h4>Teachers:</h4>
+        <h1 class="main-title">Our teachers</h1>
     </section>
     <section>
         <section class="data-list">
