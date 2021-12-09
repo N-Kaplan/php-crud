@@ -28,18 +28,18 @@ class ClassesLoader extends DataSource {
     }
 
     // get classes by name
-    public function getClassesByName(string $name): array {
-        $classes = [];
-        $sql = "SELECT * FROM class WHERE name = ?";
-        $stmt = $this->connect()->prepare($sql);
-        $stmt->execute([$name]);
-        $names = $stmt->fetch(PDO::FETCH_ASSOC);
+    // public function getClassesByName(string $name): array {
+    //     $classes = [];
+    //     $sql = "SELECT * FROM class WHERE name = ?";
+    //     $stmt = $this->connect()->prepare($sql);
+    //     $stmt->execute([$name]);
+    //     $names = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        foreach ($names as $name) {
-            array_push($classes, $name);
-        }
-        return $classes;
-    }
+    //     foreach ($names as $name) {
+    //         array_push($classes, $name);
+    //     }
+    //     return $classes;
+    // }
 
 
     // insert classes into database

@@ -7,6 +7,7 @@
     <title>classes</title>
 </head>
 <body>
+<section>
 <table class="paleBlueRows">
 <thead>
 <tr>
@@ -33,6 +34,25 @@ foreach($classesArray as $classes){
 </tbody>
 </tr>
 </table>
+</section>
+<section>
+        <h4>Add a new class:</h4>
+        <form method="post">
+            <label for="className">Name: </label>
+            <input type="text" name="className" placeholder="Name" required pattern="^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$">
+            <label for="location">Location: </label>
+            <input type="text" name="location" placeholder="location" required>
+            <label for="teacher">Teacher: </label>
+            <select name="classTeacher"  required>
+                <?php
+                foreach ($teachers as $t) {
+                    echo "<option value=" . $t['id'] . ">" . $t['name'] . "</option>";
+                }
+                ?>
+            </select>
+            <input type="submit" name="add">
+        </form>
+    </section>
 
 <section>
         <h4>Add a new class:</h4>
@@ -54,6 +74,8 @@ foreach($classesArray as $classes){
     </section>
 </body>
 </html>
+
+
 
 <style>
     button{

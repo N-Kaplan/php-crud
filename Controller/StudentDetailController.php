@@ -11,18 +11,20 @@ class StudentDetailController {
         $studentLoader = new StudentLoader();
         $students = $studentLoader->getStudents();
 
-        // get the id for the selected student? no idea what I'm doing at this point, feels like voodoo
-        $array = array_values($POST);
-        $studentId = ((int)$array[0]);
-
-        $studentById = $studentLoader->getStudentById($studentId);
+        $studentById = $studentLoader->getStudentById((int)$_GET['id']);
 
         //get the list with all the classes
         $classesLoader = new ClassesLoader();
         $classes = $classesLoader->getClasses();
 
-        //you should not echo anything inside your controller - only assign vars here
-        // then the view will actually display them.
+        if (isset($POST['submitBtn'])) {
+            $name = $email = $class_id = $id = '';
+            $name = $POST['student-name'];
+            $email = $POST['student-email'];
+            $class_id = (int)$POST['student-class'];
+            $id = (int)$POST['student-id'];
+            $studentLoader->editStudent($name, $email, $class_id, $id);
+        }
 
         //load the view
         require 'View/student-detail.php';

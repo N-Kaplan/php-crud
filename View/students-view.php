@@ -1,14 +1,14 @@
 <?php require 'includes/header.php' ?>
 <!-- this is the view, try to put only simple if's and loops here.
 Anything complex should be calculated in the model -->
-<section>
+<section class='students-main'>
+    <section class="students-header">
+        <h1>This is the student page.</h1>
+        <h3>Here we should have all of our beautiful students</h3>
 
-    <h1>This is the student page.</h1>
-    <h3>Here we should have all of our beautiful students</h3>
-
-    <p><a href="index.php?page=homepage">To homepage</a></p>
-
-    <section>
+        <p><a href="index.php?page=homepage">To homepage</a></p>
+    </section>
+    <section class="students-list">
         <table>
             <thead>
                 <tr>
@@ -25,27 +25,27 @@ Anything complex should be calculated in the model -->
                 foreach ($students as $student) {
                     echo
                     "
-                    <form method='post' action='index.php?page=student-detail'>
                     <table id='Table{$student['id']}' class='table'>
                     <tbody name=Table{$student['id']}' id='tbody'>
                         <tr name='Table{$student['id']}'>
+                        
                             <td name='Table{$student['id']}' style='display:none;'><input type='hidden' name='v{$student['id']}' value='{$student['id']}'>{$student['id']}</td>
-                            <td name='Table{$student['id']}'><input type='hidden'>{$student['name']}</td>
-                            <td name='Table{$student['id']}'><input type='hidden'>{$student['email']}</td>
-                            <td name='Table{$student['id']}'><input type='hidden''>{$student['className']}</td>
-                            <td name='Table{$student['id']}' id='td'><input type='hidden' class='form-control' name='editBtn' value='Edit'><button type='submit'>edit</button></td>
-                            <td name='Table{$student['id']}' id='td'><input type='hidden' class='form-control' value='Delete'><button type='submit'>Delete</button></td>
+                            <td name='Table{$student['id']}'>{$student['name']}</td>
+                            <td name='Table{$student['id']}'>{$student['email']}</td>
+                            <td name='Table{$student['id']}'>{$student['className']}</td>
+                            <td name='Table{$student['id']}' id='td'><a href='index.php?page=student-detail&id={$student['id']}'>Edit</a></td>
+                            <td name='Table{$student['id']}' id='td'><a href='index.php?page=student-detail&id={$student['id']}'>Delete</a></td>
+                    
                         </tr>
                      </table>
-                    </form>
+                    
                     ";
                 }
-
                 ?>
             </tbody>
         </table>
     </section>
-    <section>
+    <section class="students-add">
         <h4>Add a new student:</h4>
         <form method="post" action="">
             <label for="student-name">Name: </label>
@@ -56,7 +56,7 @@ Anything complex should be calculated in the model -->
             <select name="student-class" id="student-class" required>
                 <?php
                 foreach ($classes as $v) {
-                    echo "<option value='" . $v['id'] . "'>" . $v['name'] . "</option>";
+                    echo "<option value=" . $v['id'] . "'>" . $v['name'] . "</option>";
                 }
                 ?>
             </select>
