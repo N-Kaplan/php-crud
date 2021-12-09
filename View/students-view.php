@@ -56,7 +56,7 @@ Anything complex should be calculated in the model -->
             <select name="student-class" id="student-class" required>
                 <?php
                 foreach ($classes as $v) {
-                    echo "<option value='" . $v['id'] . "'>" . $v['name'] . "</option>";
+                    echo "<option value=" . $v['id'] . "'>" . $v['name'] . "</option>";
                 }
                 ?>
             </select>
