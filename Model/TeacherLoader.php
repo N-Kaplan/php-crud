@@ -22,20 +22,6 @@ class TeacherLoader extends DataSource
         return $result->fetch(PDO::FETCH_ASSOC);
     }
 
-    // get teacher(s) by name (necessary?)
-//    public function getTeachersByName(string $name): array {
-//        $teachers = [];
-//        $sql = "SELECT * FROM Student WHERE name = ?";
-//        $result = $this->connect()->prepare($sql);
-//        $result->execute([$name]);
-//        $names = $result->fetch(PDO::FETCH_ASSOC);
-//
-//        foreach ($names as $name) {
-//            array_push($teachers, $name);
-//        }
-//        return $teachers;
-//    }
-
     // insert teacher into database
     public function addTeacher(string $name, string $email): void {
         $sql = "INSERT INTO Teacher(name, email) VALUES(?, ?)";
@@ -58,7 +44,7 @@ class TeacherLoader extends DataSource
         $result->execute([$name, $email, $id]);
     }
 
-    //get all assigned students
+    //get all students assigned to a specific teacher
     public function getStudents(int $id): array {
         $students = [];
         $sql = "SELECT student.id, student.name, student.email FROM student RIGHT JOIN school.class c on c.id = student.class_id WHERE teacher_id = ?";

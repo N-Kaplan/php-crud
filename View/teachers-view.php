@@ -8,7 +8,6 @@
     <p><a href="index.php">Back to Homepage</a></p>
 
     <h4>Teachers:</h4>
-<!--    todo: add student list as clickable link-->
     <section>
         <table >
             <thead>

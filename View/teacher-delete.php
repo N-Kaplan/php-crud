@@ -2,6 +2,7 @@
 //require 'includes/header.php';
 
 ?>
+    <p><a href="index.php">Back to Homepage</a></p>
     <p><a href="index.php?page=teachers-view">Back to teachers page</a></p>
     <section>
         <table >
@@ -26,9 +27,11 @@
                            </td>
                        </tr>";
 
+
             ?>
             </tbody>
         </table>
     </section>
 <?php
+    if (isset($_POST['delete'])) {$this->alert();}
 require  'includes/footer.php';

@@ -34,7 +34,7 @@ if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
     $controller = new StudentController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'student-detail') {
     $controller = new StudentDetailController();
-} elseif (isset($_GET['page']) && $_GET['page'] === 'teachers-view' || $_GET['page'] === 'teacher-students') {
+} elseif (isset($_GET['page']) && ($_GET['page'] === 'teachers-view' || $_GET['page'] === 'teacher-students')) {
     $controller = new TeacherController();
 } elseif (isset(($_GET)['page']) && $_GET['page'] === 'teacher-delete') {
     $controller = new TeacherDeleteController();
