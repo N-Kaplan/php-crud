@@ -10,6 +10,9 @@
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to the PHP CRUD School</h1>
+    <header class="main-header">
+        <a href="index.php?page=homepage" class="link hover-underline">Home</a>
+        <a href="index.php?page=classes" class="link hover-underline">Classes</a>
+        <a href="index.php?page=teachers-view" class="link hover-underline">Teachers</a>
+        <a href="index.php?page=students-view" class="link hover-underline">Students</a>
     </header>

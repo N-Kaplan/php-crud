@@ -1,26 +1,30 @@
-<p><a href="index.php">Back to Homepage</a></p>
-<p><a href="index.php?page=teachers-view">Back to teachers page</a></p>
-    <section>
-        <h4><?php echo $teacher['name'] ?>'s students:</h4>
+<?php require 'includes/header.php' ?>
+<section class="main">
+    <section class="header">
+        <h1><?php echo ucfirst($teacher['name']) ?>'s students:</h1>
+    </section>
+    <section class="data-list">
         <table class="main-table">
             <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Email</th>
-            </tr>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
             </thead>
             <tbody>
-            <?php
-            foreach ($students as $student) {
-                echo "<tr>
+                <?php
+                foreach ($students as $student) {
+                    echo "<tr>
                         <td> {$student['id']} </td>
                         <td> {$student['name']} </td>
                         <td> {$student['email']} </td>
                       </tr>";
-            }
-            ?>
+                }
+                ?>
             </tbody>
         </table>
     </section>
+</section>
 
+<?php require 'includes/footer.php' ?>

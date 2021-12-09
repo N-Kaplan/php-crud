@@ -33,13 +33,28 @@ class StudentLoader extends DataSource {
     public function getStudentsByTeacherId(int $id) {
         $studByTeachId = [];
         $sql = "SELECT s.*, c.name AS className, t.id AS teacher_id, t.name AS teacherName 
-        FROM Student s join Class c on s.class_id = c.id JOIN teacher t ON c.teacher_id = t.id WHERE t.id = ?";
+                FROM Student s join Class c on s.class_id = c.id 
+                JOIN teacher t ON c.teacher_id = t.id WHERE t.id = ?";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             array_push($studByTeachId, $row);
         }
         return $studByTeachId;
+    }
+
+    public function getStudentsByClassId(int $id) {
+        $studByClassId = [];
+        $sql = "SELECT c.name, s.name, s.email 
+                FROM Student s join Class c on s.class_id = c.id 
+                JOIN Teacher t ON c.teacher_id = t.id WHERE c.id = ?
+                GROUP BY s.name";
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$id]);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($studByClassId, $row);
+        }
+        return $studByClassId;
     }
 
     public function addStudent(string $name, string $email, int $class_id): void {

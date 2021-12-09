@@ -1,5 +1,105 @@
 @import url('./Styles/styles-reset.css');
 @import url('./Styles/homepage.css');
-@import url('./Styles/students-view.css');
 @import url('./Styles/student-detail.css');
-@import url('./Styles/teachers-view.css');
+
+.main-header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
+  height: 4rem;
+  padding: 0 8rem;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  background-color: #7a0099;
+  z-index: 4;
+}
+
+.main {
+  margin: 6rem 0 2rem 0;
+}
+
+.main-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.2em;
+  min-width: 720px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.main-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.main-table th,
+.main-table td {
+  padding: 12px 15px;
+}
+
+.main-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.main-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.main-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.tbody {
+  display: flex;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  background-color: #997a00;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 3rem;
+}
+
+.link,
+.footer-span {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.link {
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.hover-underline {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+}
+
+.hover-underline:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}

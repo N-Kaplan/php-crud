@@ -1,15 +1,7 @@
 <?php require 'includes/header.php' ?>
-<!-- this is the view, try to put only simple if's and loops here.
-Anything complex should be calculated in the model -->
 <section class="main">
     <section class="header">
-        <h1>This is the student detail page.</h1>
-        <h3>This is where we will edit a selected student</h3>
-
-        <p><a href="index.php?page=homepage">To homepage</a></p>
-        <p><a href="index.php?page=students-view">To students list page</a></p>
-        <p><a href="index.php?page=teachers-view">To the teachers page</a></p>
-        <p><a href="index.php?page=classes">To the classes page</a></p>
+        <h1>Edit or delete</h1>
     </section>
 
     <section class="form-main">
