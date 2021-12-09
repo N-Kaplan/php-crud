@@ -11,6 +11,7 @@ class TeacherController
     public function render(array $GET, array $POST)
     {
         $teacherLoader = new TeacherLoader();
+        $studentLoader = new StudentLoader();
         $teachersArr = $teacherLoader->getTeachers();
 
         $page = $_GET['page'];
@@ -28,7 +29,7 @@ class TeacherController
                 break;
             case 'teacher-students':
                 $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
-                $students = $teacherLoader->getStudents((int)$_GET['id']);
+                $students = $studentLoader->getStudentsByTeacherId((int)$_GET['id']);
                 require 'View/teacher-students.php';
                 break;
         }
