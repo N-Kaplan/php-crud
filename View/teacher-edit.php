@@ -27,7 +27,9 @@
     <h4>Edit teacher information:</h4>
     <form method="post" action="">
         <label for="teacher-name">Name: </label>
-        <input type="text" name="teacher-name" value="<?php echo $teacher['name'] ?>" pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" required>
+        <input type="text" name="teacher-name"
+               value="<?php echo isset($_POST['edit']) ? $_POST['teacher-name'] : $teacher['name']?>"
+               pattern="(^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$)" required>
         <label for="teacher-email">Email: </label>
         <input type="email" name="teacher-email" value="<?php echo $teacher['email'] ?>" required>
         <button type="submit" name="edit" value="edit">Edit</button>

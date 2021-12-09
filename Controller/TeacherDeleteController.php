@@ -9,7 +9,10 @@ class TeacherDeleteController
         if (isset($_POST['delete'])) {
             $teacherLoader->deleteTeacher((int)$teacher['id']);
             $teachersArr = $teacherLoader->getTeachers();
-            echo '<meta http-equiv="refresh" content="0;url=\"index.php?page=teachers-view\" />';
+            //refresh the page after submitting the form
+            $referer = $_SERVER['HTTP_REFERER'];
+            header("Location: $referer");
+           // echo '<meta http-equiv="refresh" content="0;url=\"index.php?page=teachers-view\" />';
         }
         require 'View/teacher-delete.php';
     }

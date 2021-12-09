@@ -25,7 +25,8 @@ class TeacherController
                 //add teacher
                 if (isset($_POST['add'])) {
                     //refresh once the add button is clicked, so the list is immediately updated
-                    echo "<meta http-equiv='refresh' content='0'>";
+                    $referer = $_SERVER['HTTP_REFERER'];
+                    header("Location: $referer");
                     $teacherLoader->addTeacher($_POST['teacher-name'], $_POST['teacher-email']);
                 }
                 require 'View/teachers-view.php';
