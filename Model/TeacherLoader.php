@@ -52,4 +52,9 @@ class TeacherLoader extends DataSource
     }
 
     //edit teacher
+    public function editTeacher(string $name, string $email, int $id): void {
+        $sql = "UPDATE Teacher SET name=?, email=? WHERE id=?";
+        $result = $this->connect()->prepare($sql);
+        $result->execute([$name, $email, $id]);
+    }
 }
