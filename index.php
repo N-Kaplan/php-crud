@@ -15,7 +15,6 @@ require 'Model/Classes.php';
 require 'Model/ClassesLoader.php';
 //include all your controllers here
 require 'Controller/HomepageController.php';
-require 'Controller/InfoController.php';
 require 'Controller/TeacherController.php';
 require 'Controller/TeacherEditController.php';
 require 'Controller/StudentController.php';
@@ -24,8 +23,6 @@ require 'Controller/StudentDetailController.php';
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
-//todo: remove info page, infoController
-
 
 $controller = new HomepageController();
 
