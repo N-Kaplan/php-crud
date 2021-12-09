@@ -2,6 +2,7 @@
 //require 'includes/header.php';
 
 ?>
+    <p><a href="index.php?page=teachers-view">Back to teachers page</a></p>
     <section>
         <table >
             <thead>

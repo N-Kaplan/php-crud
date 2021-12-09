@@ -30,24 +30,12 @@ class TeacherController
                 }
                 require 'View/teachers-view.php';
                 break;
-            case 'teacher-delete':
-//                $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
-//                //delete teacher
-//                require 'View/teacher-delete.php';
-                if (isset($_POST['delete'])) {
-                    $teacherLoader->deleteTeacher((int)$_GET['id']);
-                    $teachersArr = $teacherLoader->getTeachers();
-                    //header('Location: index.php?page=teachers-view.php');
-                    echo '<meta http-equiv="refresh" content="0;url=\"index.php?page=teachers-view\" />';
-                    require 'View/teachers-view.php';
-
-                } else {
-                    $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
-                    require 'View/teacher-delete.php';
-                }
+            case 'teacher-students':
+                $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
+                $students = $teacherLoader->getStudents((int)$_GET['id']);
+                //var_dump($students);
+                require 'View/teacher-students.php';
                 break;
-//            case 'teacher-edit':
-//                require 'View/teacher-edit.php';
         }
     }
 }
