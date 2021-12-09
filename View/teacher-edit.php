@@ -1,3 +1,4 @@
+<p><a href="index.php">Back to Homepage</a></p>
 <p><a href="index.php?page=teachers-view">Back to teachers page</a></p>
 
 
@@ -14,7 +15,6 @@
         </thead>
         <tbody>
         <?php
-
             echo "<tr>
                       <td> {$teacher['id']} </td>
                       <td> {$teacher['name']} </td>

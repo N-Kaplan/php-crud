@@ -14,7 +14,7 @@ Learning exercise at BeCode training.
 
 - Repository: `php-crud`
 - Type of Challenge: `Learning Challenge`
-- Duration: `3 days: 06/12/2021 - 08/12/2021`
+- Duration: `4 days: 06/12/2021 - 09/12/2021`
 - Deployment strategy : `NA`
 - Team challenge : `team of 3`
 

@@ -8,7 +8,6 @@
     <p><a href="index.php">Back to Homepage</a></p>
 
     <h4>Teachers:</h4>
-<!--    todo: add student list as clickable link-->
     <section>
         <table >
             <thead>
@@ -16,6 +15,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Student List</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -27,6 +27,7 @@
                                 <td> {$teacher['id']} </td>
                                 <td> {$teacher['name']} </td>
                                 <td> {$teacher['email']} </td>
+                                <td><a href=\"index.php?page=teacher-students&id={$teacher['id']}\">Students</td>
                                 <td><a href=\"index.php?page=teacher-edit&id={$teacher['id']}\">Edit</td>
                                 <td><a href=\"index.php?page=teacher-delete&id={$teacher['id']}\">Delete</a></td>
                               </tr>";
