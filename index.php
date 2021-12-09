@@ -18,7 +18,6 @@ require 'Controller/HomepageController.php';
 require 'Controller/InfoController.php';
 require 'Controller/TeacherController.php';
 require 'Controller/TeacherEditController.php';
-require 'Controller/TeacherDeleteController.php';
 require 'Controller/StudentController.php';
 require 'Controller/ClassesController.php';
 require 'Controller/StudentDetailController.php';
@@ -36,8 +35,6 @@ if (isset($_GET['page']) && $_GET['page'] === 'students-view') {
     $controller = new StudentDetailController();
 } elseif (isset($_GET['page']) && ($_GET['page'] === 'teachers-view' || $_GET['page'] === 'teacher-students')) {
     $controller = new TeacherController();
-} elseif (isset(($_GET)['page']) && $_GET['page'] === 'teacher-delete') {
-    $controller = new TeacherDeleteController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'teacher-edit') {
     $controller = new TeacherEditController();
 } elseif (isset($_GET['page']) && $_GET['page'] === 'classes') {

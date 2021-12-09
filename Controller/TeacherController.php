@@ -12,11 +12,6 @@ class TeacherController
     {
         $teacherLoader = new TeacherLoader();
         $teachersArr = $teacherLoader->getTeachers();
-        //var_dump($teachersArr);
-
-//        $getTeacherById = $teacherLoader->getTeacherById(2);
-//        //var_dump($getTeacherById);
-//        echo implode(' - ', $getTeacherById);
 
         $page = $_GET['page'];
         //load view
@@ -34,7 +29,6 @@ class TeacherController
             case 'teacher-students':
                 $teacher = $teacherLoader->getTeacherById((int)$_GET['id']);
                 $students = $teacherLoader->getStudents((int)$_GET['id']);
-                //var_dump($students);
                 require 'View/teacher-students.php';
                 break;
         }

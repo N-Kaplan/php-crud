@@ -32,5 +32,6 @@
         <label for="teacher-email">Email: </label>
         <input type="email" name="teacher-email" value="<?php echo $teacher['email'] ?>" required>
         <button type="submit" name="edit" value="edit">Edit</button>
+        <button type="submit" name="delete" value="delete">Delete</button>
     </form>
 </section>
