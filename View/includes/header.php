@@ -10,6 +10,9 @@
 </head>
 
 <body>
-    <header>
-        <h1>Welcome to the PHP CRUD School</h1>
+    <header class="main-header">
+        <button class="header-btn link"><a href="index.php?page=homepage" class="link">Home</a></button>
+        <button class="header-btn link"><a href="index.php?page=classes" class="link">Classes</a></button>
+        <button class="header-btn link"><a href="index.php?page=teachers-view" class="link">Teachers</a></button>
+        <button class="header-btn link"><a href="index.php?page=students-view" class="link">Students</a></button>
     </header>

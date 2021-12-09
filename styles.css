@@ -3,3 +3,95 @@
 @import url('./Styles/students-view.css');
 @import url('./Styles/student-detail.css');
 @import url('./Styles/teachers-view.css');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+.main-header {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 4rem;
+  padding: 0 8rem;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  background-color: #7a0099;
+  z-index: 4;
+}
+
+.header-btn {
+  background-color: #009879;
+  color: #ffffff;
+  width: 8rem;
+  margin: 0.5rem 0;
+  border-radius: 6px;
+  padding: 5px;
+  border: none;
+}
+
+.header-btn:hover {
+  transform: scale(1.1);
+}
+
+.main {
+  margin: 6rem 0 2rem 0;
+}
+
+.main-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 1.2em;
+  min-width: 720px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.main-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.main-table th,
+.main-table td {
+  padding: 12px 15px;
+}
+
+.main-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.main-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.main-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.tbody {
+  display: flex;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+  background-color: #997a00;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  min-height: 3rem;
+}
+
+.link,
+.footer-span {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.link {
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}

@@ -45,9 +45,9 @@ class StudentLoader extends DataSource {
 
     public function getStudentsByClassId(int $id) {
         $studByClassId = [];
-        $sql = "SELECT s.name, c.name
+        $sql = "SELECT c.name, s.name, s.email 
                 FROM Student s join Class c on s.class_id = c.id 
-                JOIN Teacher t ON c.teacher_id = t.id WHERE c.id = 1
+                JOIN Teacher t ON c.teacher_id = t.id WHERE c.id = ?
                 GROUP BY s.name";
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$id]);
