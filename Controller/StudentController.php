@@ -17,13 +17,15 @@ class StudentController {
         // add student to database
         if (isset($POST['add'])) {
             $studentLoader->addStudent($POST['student-name'], $POST['student-email'], (int)$POST['student-class']);
-            echo "<meta http-equiv='refresh' content='0'>";
+            $referer = $_SERVER['HTTP_REFERER'];
+            header("Location: $referer");
         }
 
         // delete student from database
         if (isset($POST['delete'])) {
             $studentLoader->deleteStudent((int)$POST['delete']);
-            echo "<meta http-equiv='refresh' content='0'>";
+            $referer = $_SERVER['HTTP_REFERER'];
+            header("Location: $referer");
         }
 
         require 'View/students-view.php';
