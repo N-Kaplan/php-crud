@@ -7,6 +7,8 @@
     <title>classes</title>
 </head>
 <body>
+<p><a href="index.php">Back to Homepage</a></p>
+
 <section>
 <table class="paleBlueRows">
 <thead>
@@ -24,8 +26,10 @@ foreach($classesArray as $classes){
 <td>{$classes['name']}</td>
 <td>{$classes['location']}</td>
 <td>{$classes['teacher_id']}</td>
-<td><button>Edit</button></td>
-<td><button>Delete</button></td>
+<td ><a href='index.php?page=classesEdit&id={$classes['id']}'>Edit</a></td>
+<form method='post' action=''>
+<td name='delete' ><button value='{$classes['id']}'type='submit'name='delete'>Delete</button></td>
+</form>
 </tr>";
 }
 ?> 
@@ -51,7 +55,6 @@ foreach($classesArray as $classes){
             <input type="submit" name="add">
         </form>
     </section>
-
 </body>
 </html>
 
