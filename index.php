@@ -49,7 +49,6 @@ elseif (isset($_GET['page']) && $_GET['page'] === 'classesEdit') {
     $controller = new ClassesEditController();
 }
 $controller->render($_GET, $_POST);
-<<<<<<< HEAD
 
 
 // function whatIsHappening()
@@ -65,5 +64,3 @@ $controller->render($_GET, $_POST);
 // }
 
 // whatIsHappening();
-=======
->>>>>>> 257ef517d34fc40924e912e96d17a47785c88b2b
