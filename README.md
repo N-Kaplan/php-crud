@@ -46,17 +46,13 @@ Planning done, work started and by the end of day 1️⃣ we had the following:
 - `StudentLoader`, `TeacherLoader`
 - `StudentController`
 
-> all these classes were just the beginning and they went thru some alterations during the entire project
+> all these classes were just the beginning and they went thruough some alterations during the entire project
 
 ## Day 2️⃣. How did it go?
 
-Both me and Binayak had something else to do BeCode related so Naama was alone and she merged my pull request and continued working on her `Teacher` Class and Loader.  
-She also added the first variant of the `Readme` file.  
-After 17 o'clock I did some more work on the `StudentController` and created a `StudentDetailController` for the new `student-detail` view and also added the `students-view` which displays all the students from the db.  
-Here I encountered the first big issue: how to use only one controller for multiple views?
+Issue: how to use only one controller for multiple views?
 
-> after quite a bit of trying and trying I gave up and just added a new controller, updated the `index.php` to look for it and called it a day.  
-> I guess it ain't stupid if it works... right?
+> No solution yet; currently there's a separate controller for every view.
 
 ## Day 3️⃣. How did it go?
 
